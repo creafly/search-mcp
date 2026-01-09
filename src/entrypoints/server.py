@@ -1,4 +1,5 @@
 import sys
+
 from src.core.settings import get_settings, setup_logging
 from src.entrypoints.mcp_instance import mcp
 
@@ -8,11 +9,7 @@ def main():
     settings = get_settings()
     logger = setup_logging(settings.LOG_LEVEL)
 
-    from src.tools import (  # noqa: F401
-        search_images,
-        search_news,
-        search_web,
-    )
+    from src.tools import search_images, search_news, search_web  # noqa: F401
 
     try:
         settings.validate_required_fields()
